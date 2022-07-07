@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
-const apiRoutes = require("./api");
+const apiRoutes = require("./router/api.js");
 require("dotenv").config();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -18,7 +18,7 @@ app.use("/api", apiRoutes, (req, res, next) => {
 mongoose
   .connect(process.env.ATLAS_CONNECTION_URL, { useNewUrlParser: true })
   .then(() => {
-    console.log(`exam_back_end connected successfully`);
+    console.log(`academy_exam_back_end connected successfully`);
   })
   .catch((err) => {
     console.log(err);

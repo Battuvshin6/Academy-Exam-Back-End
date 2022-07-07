@@ -1,13 +1,12 @@
-const e = require("express");
 const express = require("express");
 const mongoose = require("mongoose");
 const app = express();
-const model = require("./modal");
+const model = require("../models/modal.js");
 const createData = (req, res, next) => {
   const newModel = new model({
     _id: new mongoose.Types.ObjectId(),
-    date: req.body.date,
-    topic: req.body.topic,
+    orderNumber: req.body.orderNumber,
+    doneTime: req.body.doneTime,
   });
   newModel
     .save()
